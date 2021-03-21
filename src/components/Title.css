@@ -1,3 +1,11 @@
 .title{
     text-align: center;
+    background-color: #102A43;
+    padding: 40px 0;
+}
+.title > h1{
+    margin: 0;
+    color: #F0F4F8;
+    font-size: 3em;
+    text-shadow: 2px 1px 0px #0303, 3px 2px 0px #0303, 4px 3px 0px #0303, 5px 4px 0px #0303;
 }
