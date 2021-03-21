@@ -1,25 +1,16 @@
 import './Board.css'
-import { RGBColor } from 'react-color'
 import Canvas from './Canvas'
 import {useRef, useEffect, useState, useContext} from 'react'
 import ColorContext from '../../state/Color'
+import DimensionsContext from '../../state/Dimensions'
 
 export default function Board() {
     
-    const ctxColor = useContext(ColorContext)
-
-    //Temp variables
-    const canvasHeight = 12
-    const canvasWidth = 20
-    const canvasRatio = 50
-    const fillColor:RGBColor = {
-        r: 128,
-        g: 0,
-        b: 0,
-        a: 1
-    }
+    //Context
+    const color = useContext(ColorContext)!.color
+    const dimensions = useContext(DimensionsContext)!.dimensions
     
-    //Hook
+    //Hooks
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const [board, setBoard] = useState<Canvas | null>(null)
     
@@ -29,21 +20,21 @@ export default function Board() {
 
     useEffect(() => {
         if (board){
-            board.init(canvasWidth,canvasHeight, canvasRatio)
+            board.init(dimensions.width,dimensions.height, dimensions.ratio)
         }
-    },[board,canvasWidth,canvasHeight])
+    },[board,dimensions.width,dimensions.height,dimensions.ratio])
 
     //Event Handlers
     function handleLeftClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
         const {x, y} = getPixelOrigin(e.pageX, e.pageY)
-        board!.drawPixel(x,y,ctxColor!.color)
+        board!.drawPixel(x,y,color)
     }
 
     function handleRightClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
         e.preventDefault()
         const {x, y} = getPixelOrigin(e.pageX, e.pageY)
         console.log({x,y})
-        board?.fill(x,y,ctxColor!.color)
+        board?.fill(x,y,color)
     }
 
     //Helper functions
@@ -55,8 +46,8 @@ export default function Board() {
         const right = rect.right  + window.scrollX;
         const bottom = rect.bottom + window.scrollY;
     
-        const originX = Math.trunc(((x - left) / (right - left) * canvas.width) / canvasRatio) * canvasRatio
-        const originY = Math.trunc(((y - top) / (bottom - top) * canvas.height) / canvasRatio) * canvasRatio
+        const originX = Math.trunc(((x - left) / (right - left) * canvas.width) / dimensions.ratio) * dimensions.ratio
+        const originY = Math.trunc(((y - top) / (bottom - top) * canvas.height) / dimensions.ratio) * dimensions.ratio
         return {
             x: originX,
             y: originY

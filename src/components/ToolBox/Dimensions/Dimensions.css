@@ -1,0 +1,23 @@
+.Dimensions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Dimensions-Input{
+    width: 35px;
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+    border: 0px;
+    outline: none;
+    height: 28px;
+    box-sizing: content-box;
+    box-shadow: rgb(240 240 240) 0px 0px 0px 1px inset;
+    border-radius: 4px;
+    margin: 0 5px;
+    padding-left: 8px;
+}
+
+.Dimensions-Separator{
+    font-weight: bold;
+    margin: 0;
+}
