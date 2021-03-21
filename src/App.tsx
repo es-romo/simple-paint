@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import {useState} from 'react'
+import {RGBColor} from 'react-color'
+import ColorContext from './state/Color'
+import Title from './components/Title'
 import './App.css';
 
-function App() {
+function App() {  
+
+  const [color,setColor] = useState<RGBColor>({r:0,g:0,b:0,a:1})
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title/>
+      <ColorContext.Provider value={{color, setColor}}>
+      </ColorContext.Provider>
     </div>
   );
 }
