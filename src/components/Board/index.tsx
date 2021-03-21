@@ -1,10 +1,13 @@
-import {useRef, useEffect, useState} from 'react'
+import './Board.css'
 import { RGBColor } from 'react-color'
 import Canvas from './Canvas'
-import './Board.css'
+import {useRef, useEffect, useState, useContext} from 'react'
+import ColorContext from '../../state/Color'
 
 export default function Board() {
     
+    const ctxColor = useContext(ColorContext)
+
     //Temp variables
     const canvasHeight = 12
     const canvasWidth = 20
@@ -33,14 +36,14 @@ export default function Board() {
     //Event Handlers
     function handleLeftClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
         const {x, y} = getPixelOrigin(e.pageX, e.pageY)
-        board!.drawPixel(x,y,fillColor)
+        board!.drawPixel(x,y,ctxColor!.color)
     }
 
     function handleRightClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
         e.preventDefault()
         const {x, y} = getPixelOrigin(e.pageX, e.pageY)
         console.log({x,y})
-        board?.fill(x,y,fillColor)
+        board?.fill(x,y,ctxColor!.color)
     }
 
     //Helper functions
