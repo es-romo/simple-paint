@@ -1,0 +1,25 @@
+.Tools{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 65px;
+    padding-right: 8px;
+}
+
+.Tools-Container{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.Tools-Selected{
+    background-color: grey;
+}
+
+.Tools-Tool{
+    width: 25px;
+    height: 25px;
+}

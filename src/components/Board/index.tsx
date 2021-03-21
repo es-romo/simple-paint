@@ -3,12 +3,14 @@ import Canvas from './Canvas'
 import {useRef, useEffect, useState, useContext} from 'react'
 import ColorContext from '../../state/Color'
 import DimensionsContext from '../../state/Dimensions'
+import ToolContext, {ToolOption} from '../../state/Tool'
 
 export default function Board() {
     
     //Context
     const color = useContext(ColorContext)!.color
     const dimensions = useContext(DimensionsContext)!.dimensions
+    const tool = useContext(ToolContext)!.tool
     
     //Hooks
     const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -25,18 +27,17 @@ export default function Board() {
     },[board,dimensions.width,dimensions.height,dimensions.ratio])
 
     //Event Handlers
-    function handleLeftClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
+    function handleCLick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
         const {x, y} = getPixelOrigin(e.pageX, e.pageY)
-        board!.drawPixel(x,y,color)
+        switch (tool) {
+            case ToolOption.PENCIL:
+                board!.drawPixel(x,y,color)
+                break;
+            case ToolOption.FILL:
+                board!.fill(x,y,color)
+                break;
+        }
     }
-
-    function handleRightClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
-        e.preventDefault()
-        const {x, y} = getPixelOrigin(e.pageX, e.pageY)
-        console.log({x,y})
-        board?.fill(x,y,color)
-    }
-
     //Helper functions
     function getPixelOrigin(x: number,y: number){
         const canvas = canvasRef.current!
@@ -58,8 +59,7 @@ export default function Board() {
         <div className='board'>
             <canvas 
                 ref={canvasRef}
-                onClick={ e => handleLeftClick(e)}
-                onContextMenu={ e => handleRightClick(e) }
+                onClick={ e => handleCLick(e)}
             >    
             </canvas>
         </div>
