@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-import ColorContext from '../../../state/Color'
+import ColorContext from '../../../context/ColorContext'
 import { TwitterPicker} from 'react-color'
 import './ColorPicker.css'
 

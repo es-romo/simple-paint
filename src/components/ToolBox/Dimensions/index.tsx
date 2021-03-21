@@ -1,6 +1,6 @@
 import './Dimensions.css'
 import {useContext} from 'react'
-import DimensionsContext from '../../../state/Dimensions'
+import DimensionsContext from '../../../context/DimensionsContext'
 
 export default function Dimensions(){
     

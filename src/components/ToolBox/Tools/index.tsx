@@ -1,6 +1,6 @@
 import './Tools.css'
 import {useContext} from 'react'
-import ToolContext, {ToolOption} from '../../../state/Tool'
+import ToolContext, {ToolOption} from '../../../context/ToolContext'
 
 import { RiPencilFill,RiPaintFill } from 'react-icons/ri';
 

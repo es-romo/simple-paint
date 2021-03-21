@@ -1,9 +1,9 @@
 import './Board.css'
 import Canvas from './Canvas'
 import {useRef, useEffect, useState, useContext} from 'react'
-import ColorContext from '../../state/Color'
-import DimensionsContext from '../../state/Dimensions'
-import ToolContext, {ToolOption} from '../../state/Tool'
+import ColorContext from '../../context/ColorContext'
+import DimensionsContext from '../../context/DimensionsContext'
+import ToolContext, {ToolOption} from '../../context/ToolContext'
 
 export default function Board() {
     
