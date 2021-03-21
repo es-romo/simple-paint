@@ -3,7 +3,7 @@ import ColorContext from '../../../state/Color'
 import { TwitterPicker} from 'react-color'
 import './ColorPicker.css'
 
-const presets = ['#000000','#EB144C','#FCB900','#0693E3','#00D084']
+const presets = ['#000000','#FFFFFF','#EB144C','#0693E3','#00D084']
 
 function ColorPicker(){
   const ctxColor = useContext(ColorContext)

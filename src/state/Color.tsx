@@ -7,5 +7,4 @@ export interface IColorContext {
     setColor: Dispatch<SetStateAction<RGBColor>>
 }
 
-const ColorContext = createContext<IColorContext | null>(null)
-export default  ColorContext
+export default createContext<IColorContext | null>(null)
