@@ -7,7 +7,7 @@ export interface IDimensions {
     ratio: number
 }
 
-export interface IDimensionsContext {
+interface IDimensionsContext {
     dimensions: IDimensions,
     setDimensions: Dispatch<SetStateAction<IDimensions>>
 }

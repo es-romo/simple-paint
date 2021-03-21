@@ -2,7 +2,7 @@ import {Dispatch, SetStateAction} from 'react'
 import {createContext} from 'react'
 import { RGBColor } from 'react-color'
  
-export interface IColorContext {
+interface IColorContext {
     color: RGBColor,
     setColor: Dispatch<SetStateAction<RGBColor>>
 }
