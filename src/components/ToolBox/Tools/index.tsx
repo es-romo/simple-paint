@@ -11,16 +11,14 @@ export default function Tools() {
     return(
         <div className="Tools">
             <div 
-                className={tool === ToolOption.PENCIL ? 'Tools-Container Tools-Selected' : 'Tools-Container'}>
-                <RiPencilFill
-                    className='Tools-Tool'
-                    onClick={()=>{setTool(ToolOption.PENCIL)}}/>
+            onClick={()=>{setTool(ToolOption.PENCIL)}}
+            className={tool === ToolOption.PENCIL ? 'Tools-Container Tools-Selected' : 'Tools-Container'}>
+                <RiPencilFill className='Tools-Tool'/>
             </div>
-            <div 
-                className={tool === ToolOption.FILL ? 'Tools-Container Tools-Selected' : 'Tools-Container'}>
-                <RiPaintFill
-                    className='Tools-Tool'
-                    onClick={()=>{setTool(ToolOption.FILL)}}/>
+            <div
+            onClick={()=>{setTool(ToolOption.FILL)}}
+            className={tool === ToolOption.FILL ? 'Tools-Container Tools-Selected' : 'Tools-Container'}>
+                <RiPaintFill className='Tools-Tool'/>
             </div>
         </div>
     )
