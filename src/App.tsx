@@ -2,6 +2,7 @@ import {useState} from 'react'
 import {RGBColor} from 'react-color'
 import ColorContext from './state/Color'
 import Title from './components/Title'
+import Board from './components/Board'
 import './App.css';
 
 function App() {  
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       <Title/>
       <ColorContext.Provider value={{color, setColor}}>
+        <Board/>
       </ColorContext.Provider>
     </div>
   );
