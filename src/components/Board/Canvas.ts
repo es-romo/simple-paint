@@ -6,7 +6,7 @@ export default class Canvas {
     ratio: number = 15
     context: CanvasRenderingContext2D
 
-    
+     
     constructor(ref: React.RefObject<HTMLCanvasElement>){
         this.canvas = ref.current!
         this.context = this.canvas.getContext('2d')!
@@ -54,9 +54,13 @@ export default class Canvas {
         return canvasData
     }
 
+    /*
+        Adapted from William Malone's fill algorithm
+        http://www.williammalone.com/articles/html5-canvas-javascript-paint-bucket-tool/
+    */
     fill(tx: number,ty: number,color: RGBColor = {r:0 ,g:0, b:0, a: 1}) {
-    
         const baseColor = this.getColor(tx,ty)
+        if (this.matchColor(baseColor, color)) return;
         let canvasData = this.context.getImageData(0,0,this.canvas.width,this.canvas.height)
         let pixelStack = [[tx, ty]];
         let x, y, newPos, pos, left, right
