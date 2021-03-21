@@ -4,6 +4,10 @@ import DimensionsContext from '../../../state/Dimensions'
 
 export default function Dimensions(){
     
+    //Dimension constraints
+    const maxSize = 75
+    const minSize = 2
+
     //Context
     const ctxDimensions = useContext(DimensionsContext)
     const {dimensions,setDimensions} = ctxDimensions!
@@ -11,9 +15,15 @@ export default function Dimensions(){
     //Event Handler
     function changeDimensions(e: React.ChangeEvent<HTMLInputElement>){
         const {name, value} = e.target
+        let number = Math.floor(Number(value))
+        if (number < minSize) {
+            number = minSize
+        } else if (number > maxSize){
+            number = maxSize
+        }
         setDimensions({
             ...dimensions,
-            [name]: Number(value)
+            [name]: number
         })
     }
 
