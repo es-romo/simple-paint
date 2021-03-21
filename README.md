@@ -2,6 +2,8 @@
 
 Technical interview question for [CANImmunize](https://www.canimmunize.ca/).
 
+You can try it [here](https://es-romo.github.io/simple-paint/).
+
 ## Instructions
 
 Your task is to create an extremely simple version of the Microsoft Paint application. The application has the following requirements:
