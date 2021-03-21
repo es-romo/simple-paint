@@ -6,7 +6,7 @@ export default function Dimensions(){
     
     //Dimension constraints
     const maxSize = 75
-    const minSize = 2
+    const minSize = 1
 
     //Context
     const ctxDimensions = useContext(DimensionsContext)
