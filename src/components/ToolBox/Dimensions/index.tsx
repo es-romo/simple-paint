@@ -5,7 +5,6 @@ import DimensionsContext from '../../../state/Dimensions'
 export default function Dimensions(){
     
     //Dimension constraints
-    const maxSize = 75
     const minSize = 1
 
     //Context
@@ -18,8 +17,6 @@ export default function Dimensions(){
         let number = Math.floor(Number(value))
         if (number < minSize) {
             number = minSize
-        } else if (number > maxSize){
-            number = maxSize
         }
         setDimensions({
             ...dimensions,
