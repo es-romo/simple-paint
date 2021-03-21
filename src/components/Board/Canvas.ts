@@ -3,18 +3,13 @@ import {RGBColor} from 'react-color'
 export default class Canvas {
 
     canvas: HTMLCanvasElement
-    width: number
-    height: number
-    ratio: number
+    ratio: number = 15
     context: CanvasRenderingContext2D
 
     
-    constructor(ref: React.RefObject<HTMLCanvasElement>, width: number = 50, height: number= 50, ratio: number = 15){
+    constructor(ref: React.RefObject<HTMLCanvasElement>){
         this.canvas = ref.current!
         this.context = this.canvas.getContext('2d')!
-        this.width = width * ratio
-        this.height = height * ratio
-        this.ratio = ratio
     }
     
     wipeCanvas() {
@@ -135,8 +130,10 @@ export default class Canvas {
         this.context.putImageData(canvasData, 0, 0);
     }
 
-    init(){
-        this.canvas.width = this.width
-        this.canvas.height = this.height
+    init( width: number = 50, height: number= 50, ratio?: number ){
+        if (ratio) this.ratio = ratio
+        this.canvas.width = width * this.ratio
+        this.canvas.height = height * this.ratio
+        this.wipeCanvas()
     }
 }

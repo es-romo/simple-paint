@@ -6,9 +6,9 @@ import './Board.css'
 export default function Board() {
     
     //Temp variables
-    const canvasHeight = 50
-    const canvasWidth = 50
-    const canvasRatio = 15
+    const canvasHeight = 12
+    const canvasWidth = 20
+    const canvasRatio = 50
     const fillColor:RGBColor = {
         r: 128,
         g: 0,
@@ -21,18 +21,17 @@ export default function Board() {
     const [board, setBoard] = useState<Canvas | null>(null)
     
     useEffect(() => {
-        setBoard(new Canvas(canvasRef, canvasHeight,canvasWidth,canvasRatio))
+        setBoard(new Canvas(canvasRef))
     }, [])
 
     useEffect(() => {
         if (board){
-            board.init()
-            board.wipeCanvas()
+            board.init(canvasWidth,canvasHeight, canvasRatio)
         }
-    },[board])
+    },[board,canvasWidth,canvasHeight])
 
     //Event Handlers
-    function handleClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
+    function handleLeftClick(e: React.MouseEvent<HTMLCanvasElement, MouseEvent>){
         const {x, y} = getPixelOrigin(e.pageX, e.pageY)
         board!.drawPixel(x,y,fillColor)
     }
@@ -65,7 +64,7 @@ export default function Board() {
         <div className='board'>
             <canvas 
                 ref={canvasRef}
-                onClick={ e => handleClick(e)}
+                onClick={ e => handleLeftClick(e)}
                 onContextMenu={ e => handleRightClick(e) }
             >    
             </canvas>
