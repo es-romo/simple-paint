@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-paint/static/css/main.45ef0296.chunk.css",
+    "main.js": "/simple-paint/static/js/main.12e7da18.chunk.js",
+    "main.js.map": "/simple-paint/static/js/main.12e7da18.chunk.js.map",
+    "runtime-main.js": "/simple-paint/static/js/runtime-main.b7e8b2a9.js",
+    "runtime-main.js.map": "/simple-paint/static/js/runtime-main.b7e8b2a9.js.map",
+    "static/js/2.c76f82e0.chunk.js": "/simple-paint/static/js/2.c76f82e0.chunk.js",
+    "static/js/2.c76f82e0.chunk.js.map": "/simple-paint/static/js/2.c76f82e0.chunk.js.map",
+    "static/js/3.25548f42.chunk.js": "/simple-paint/static/js/3.25548f42.chunk.js",
+    "static/js/3.25548f42.chunk.js.map": "/simple-paint/static/js/3.25548f42.chunk.js.map",
+    "index.html": "/simple-paint/index.html",
+    "static/css/main.45ef0296.chunk.css.map": "/simple-paint/static/css/main.45ef0296.chunk.css.map",
+    "static/js/2.c76f82e0.chunk.js.LICENSE.txt": "/simple-paint/static/js/2.c76f82e0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b7e8b2a9.js",
+    "static/js/2.c76f82e0.chunk.js",
+    "static/css/main.45ef0296.chunk.css",
+    "static/js/main.12e7da18.chunk.js"
+  ]
+}
